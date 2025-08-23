@@ -1,0 +1,27 @@
+{
+  "hosts": {
+    "dns.quad9.net": [
+      "9.9.9.9",
+      "149.112.112.112"
+    ],
+    "doh.mullvad.net": [
+      "194.242.2.2"
+    ]
+  },
+  "servers": [
+    {
+      "address": "https://dns.quad9.net/dns-query",
+      "queryStrategy": "UseIPv4",
+      "skipFallback": false
+    },
+    {
+      "address": "https://doh.mullvad.net/dns-query",
+      "queryStrategy": "UseIPv4",
+      "skipFallback": false
+    }
+  ],
+  "queryStrategy": "UseIPv4",
+  "disableFallback": false,
+  "disableFallbackIfMatch": true,
+  "useSystemHosts": false
+}

@@ -1,0 +1,112 @@
+[
+  {
+    "port": "53",
+    "network": "udp",
+    "outboundTag": "block",
+    "enabled": true,
+    "remarks": "\u0417\u0430\u043F\u0440\u0435\u0442 \u0441\u044B\u0440\u043E\u0433\u043E UDP 53 \u043D\u0430\u0440\u0443\u0436\u0443"
+  },
+  {
+    "port": "",
+    "outboundTag": "block",
+    "domain": [
+      "geosite:category-ads-all"
+    ],
+    "enabled": true,
+    "remarks": "\u0411\u043B\u043E\u043A\u0438\u0440\u043E\u0432\u043A\u0430 \u0440\u0435\u043A\u043B\u0430\u043C\u044B"
+  },
+  {
+    "port": "443",
+    "network": "tcp,udp",
+    "outboundTag": "proxy",
+    "domain": [
+      "dns.quad9.net",
+      "doh.mullvad.net"
+    ],
+    "enabled": true,
+    "remarks": "DoH \u0447\u0435\u0440\u0435\u0437 \u043F\u0440\u043E\u043A\u0441\u0438"
+  },
+  {
+    "outboundTag": "direct",
+    "ip": [
+      "geoip:private"
+    ],
+    "enabled": true,
+    "remarks": "\u041F\u0440\u0438\u0432\u0430\u0442\u043D\u044B\u0435 \u0441\u0435\u0442\u0438 \u043D\u0430\u043F\u0440\u044F\u043C\u0443\u044E"
+  },
+  {
+    "outboundTag": "direct",
+    "domain": [
+      "geosite:private"
+    ],
+    "enabled": true,
+    "remarks": "\u041F\u0440\u0438\u0432\u0430\u0442\u043D\u044B\u0435 \u0434\u043E\u043C\u0435\u043D\u044B \u043D\u0430\u043F\u0440\u044F\u043C\u0443\u044E"
+  },
+  {
+    "port": "",
+    "outboundTag": "direct",
+    "domain": [
+      "geosite:ru-available-only-inside",
+      "avito.ru"
+    ],
+    "enabled": true,
+    "remarks": "\u0414\u043E\u0441\u0442\u0443\u043F\u043D\u044B\u0435 \u0442\u043E\u043B\u044C\u043A\u043E \u0432 \u0420\u043E\u0441\u0441\u0438\u0438 \u043D\u0430\u043F\u0440\u044F\u043C\u0443\u044E"
+  },
+  {
+    "port": "",
+    "network": "udp",
+    "outboundTag": "proxy",
+    "ip": [
+      "91.108.4.0/22",
+      "91.108.8.0/22",
+      "91.108.12.0/22",
+      "91.108.16.0/22",
+      "91.108.20.0/22",
+      "91.108.56.0/22",
+      "149.154.160.0/20",
+      "91.105.192.0/23",
+      "185.76.151.0/24"
+    ],
+    "domain": [
+      "*.telegram.org",
+      "*.t.me",
+      "*.cdn-telegram.org"
+    ],
+    "enabled": true,
+    "remarks": "Telegram UDP \u043F\u043E\u0434\u0441\u0435\u0442\u0438"
+  },
+  {
+    "port": "",
+    "outboundTag": "proxy",
+    "domain": [
+      "geosite:ru-blocked"
+    ],
+    "enabled": true,
+    "remarks": "\u0417\u0430\u0431\u043B\u043E\u043A\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u044B\u0435 \u0432 \u0420\u0424 (\u0434\u043E\u043C\u0435\u043D\u044B) \u2192 \u043F\u0440\u043E\u043A\u0441\u0438"
+  },
+  {
+    "port": "",
+    "outboundTag": "proxy",
+    "ip": [
+      "geoip:ru-blocked"
+    ],
+    "enabled": true,
+    "remarks": "\u0417\u0430\u0431\u043B\u043E\u043A\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u044B\u0435 \u0432 \u0420\u0424 (IP, \u0431\u0435\u0437 DNS) \u2192 \u043F\u0440\u043E\u043A\u0441\u0438"
+  },
+  {
+    "port": "",
+    "outboundTag": "direct",
+    "protocol": [
+      "bittorrent"
+    ],
+    "enabled": true,
+    "remarks": "\u0422\u043E\u0440\u0440\u0435\u043D\u0442 \u043D\u0430\u043F\u0440\u044F\u043C\u0443\u044E"
+  },
+  {
+    "port": "0-65535",
+    "network": "",
+    "outboundTag": "proxy",
+    "enabled": true,
+    "remarks": "\u041E\u0441\u0442\u0430\u043B\u044C\u043D\u043E\u0435 \u0432 \u043F\u0440\u043E\u043A\u0441\u0438"
+  }
+]
