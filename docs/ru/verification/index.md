@@ -55,12 +55,12 @@ description: Убедитесь, что маршрутизация и DNS раб
 </div>
 
 !!! success "Правильно"
-    `2ip.ru` показывает ваш **российский** IP → трафик идёт напрямую ✅
+`2ip.ru` показывает ваш **российский** IP → трафик идёт напрямую ✅
 
 !!! danger "Не так"
-    Если `2ip.ru` показывает немецкий/иностранный IP — правило
-    `geosite:ru-available-only-inside` не работает или `2ip.ru` попал
-    в список заблокированных. Проверьте порядок правил.
+Если `2ip.ru` показывает немецкий/иностранный IP — правило
+`geosite:ru-available-only-inside` не работает или `2ip.ru` попал
+в список заблокированных. Проверьте порядок правил.
 
 ---
 
@@ -70,13 +70,14 @@ description: Убедитесь, что маршрутизация и DNS раб
 
 1. Откройте [youtube.com](https://youtube.com) — должен открыться
 2. Откройте [instagram.com](https://instagram.com) — должен открыться
-3. Проверьте IP: откройте [whatismyipaddress.com](https://whatismyipaddress.com) —
+3. Проверьте IP:
+   откройте [whatismyipaddress.com](https://whatismyipaddress.com) —
    должен показать IP вашего **прокси-сервера** (Германия)
 
 </div>
 
 !!! success "Правильно"
-    Заблокированные сайты открываются, IP — иностранный ✅
+Заблокированные сайты открываются, IP — иностранный ✅
 
 ---
 
@@ -103,7 +104,7 @@ description: Убедитесь, что маршрутизация и DNS раб
 
 <div class="steps" markdown>
 
-1. Откройте [d3ward.github.io/toolz/adblock](https://d3ward.github.io/toolz/adblock)
+1. Откройте [adblock.turtlecute.org](https://adblock.turtlecute.org/)
 2. Нажмите **Run test**
 3. Процент блокировки должен быть значительно выше нуля
 
@@ -133,14 +134,14 @@ description: Убедитесь, что маршрутизация и DNS раб
 
 ## Быстрая таблица проверки
 
-| Что проверяем | Где | Ожидаемый результат |
-|---|---|---|
-| DNS-утечки | [dnsleaktest.com](https://dnsleaktest.com) | Только Quad9 / Mullvad |
-| Российские сайты | [2ip.ru](https://2ip.ru) | Российский IP |
-| Заблокированные | [youtube.com](https://youtube.com) | Открывается |
-| IP через прокси | [whatismyipaddress.com](https://whatismyipaddress.com) | IP прокси (Германия) |
-| WebRTC | [browserleaks.com/webrtc](https://browserleaks.com/webrtc) | Нет утечки реального IP |
-| Реклама | [d3ward.github.io/toolz/adblock](https://d3ward.github.io/toolz/adblock) | Блокировка > 0% |
+| Что проверяем    | Где                                                        | Ожидаемый результат     |
+|------------------|------------------------------------------------------------|-------------------------|
+| DNS-утечки       | [dnsleaktest.com](https://dnsleaktest.com)                 | Только Quad9 / Mullvad  |
+| Российские сайты | [2ip.ru](https://2ip.ru)                                   | Российский IP           |
+| Заблокированные  | [youtube.com](https://youtube.com)                         | Открывается             |
+| IP через прокси  | [whatismyipaddress.com](https://whatismyipaddress.com)     | IP прокси (Германия)    |
+| WebRTC           | [browserleaks.com/webrtc](https://browserleaks.com/webrtc) | Нет утечки реального IP |
+| Реклама          | [adblock.turtlecute.org](https://adblock.turtlecute.org/)  | Блокировка > 0%         |
 
 ---
 
