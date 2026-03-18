@@ -97,7 +97,7 @@ A dialog appears: «Do you want to append rules?»
 </figure>
 
 !!! tip "Recommendation"
-If setting up from scratch — click **Нет/No** (replace) for a clean rule set.
+    If setting up from scratch — click **Нет/No** (replace) for a clean rule set.
 
 ---
 
