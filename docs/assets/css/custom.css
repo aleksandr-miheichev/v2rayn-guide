@@ -1,0 +1,81 @@
+/* ── Скриншоты: скруглённые углы + тень ── */
+.md-content img {
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .12);
+  max-width: 100%;
+  margin: 1em 0;
+}
+
+[data-md-color-scheme="slate"] .md-content img {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .4);
+}
+
+/* ── Нумерованные шаги (красивые кружки) ── */
+.steps ol {
+  counter-reset: step-counter;
+  list-style: none;
+  padding-left: 0;
+}
+
+.steps ol > li {
+  counter-increment: step-counter;
+  position: relative;
+  padding-left: 3.2em;
+  margin-bottom: 1.5em;
+}
+
+.steps ol > li::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 0;
+  top: 0.05em;
+  width: 2.2em;
+  height: 2.2em;
+  border-radius: 50%;
+  background: var(--md-primary-fg-color);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Параметр-карточки (объяснение полей JSON) ── */
+.param-card {
+  border-left: 4px solid var(--md-primary-fg-color);
+  padding: 0.8em 1.2em;
+  margin: 1em 0;
+  background: var(--md-code-bg-color);
+  border-radius: 0 8px 8px 0;
+}
+
+.param-card code {
+  font-weight: 700;
+  color: var(--md-accent-fg-color);
+}
+
+/* ── Скриншоты с подписью ── */
+figure {
+  margin: 1.5em 0;
+  text-align: center;
+}
+
+figure figcaption {
+  font-size: 0.88em;
+  color: var(--md-default-fg-color--light);
+  margin-top: 0.5em;
+  font-style: italic;
+}
+
+/* ── «Что делает эта настройка» блоки ── */
+.what-it-does {
+  background: rgba(var(--md-primary-fg-color--rgb, 63, 81, 181), 0.06);
+  border-radius: 8px;
+  padding: 1em 1.4em;
+  margin: 1em 0;
+}
+
+[data-md-color-scheme="slate"] .what-it-does {
+  background: rgba(255, 255, 255, 0.04);
+}

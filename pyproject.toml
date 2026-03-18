@@ -1,0 +1,86 @@
+[project]
+name = "sing-box-1-12-v2rayn-guide"
+version = "0.1.0"
+description = "v2rayN DNS & routing configs and guide for sing-box 1.12 and Xray"
+readme = "README.md"
+requires-python = ">=3.14"
+license = { file = "LICENSE" }
+authors = [{ name = "Miheichev Aleksandr Sergeevich" }]
+dependencies = [
+    "basedpyright==1.38.3",
+    "black==26.3.1",
+    "hatchling==1.29.0",
+    "pyrefly==0.57.0",
+    "ruff==0.15.6",
+    "ty==0.0.23",
+]
+
+[project.scripts]
+singbox-guide = "main:main"
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "ruff",
+]
+docs = [
+    "mkdocs>=1.6,<2",
+    "mkdocs-material>=9.7,<10",
+    "mkdocs-static-i18n>=1.3,<2",
+]
+
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 79
+src = ["."]
+exclude = [
+    ".venv",
+    "build",
+    "dist",
+    ".ruff_cache",
+]
+lint.select = [
+    "A", # flake8-builtins
+    "E", # pycodestyle errors
+    "W", # pycodestyle warnings
+    "N", # pep8-naming
+    "I", # isort
+    "F", # pyflakes
+    "B", # flake8-bugbear
+    "SIM", # flake8-simplify
+    "UP", # pyupgrade
+    "C90", # mccabe
+    "PL", # pylint
+    "C4", # flake8-comprehensions
+    "S", # flake8-bandit
+    "Q", # flake8-quotes
+]
+
+[tool.ruff.lint.flake8-quotes]
+inline-quotes = "double"
+multiline-quotes = "double"
+docstring-quotes = "double"
+
+[tool.black]
+line-length = 79
+
+[tool.hatch.build.targets.wheel]
+include = [
+    "main.py",
+    "configs/**/*",
+    "docs/**/*",
+    "README.md",
+    "LICENSE",
+]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "main.py",
+    "configs/**/*",
+    "docs/**/*",
+    "README.md",
+    "LICENSE",
+]

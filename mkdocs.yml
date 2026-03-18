@@ -1,0 +1,145 @@
+site_name: v2rayN Setup Guide
+site_url: https://aleksandr-miheichev.github.io/v2rayn-guide/
+site_description: >-
+  Подробный гайд по настройке V2rayN: раздельное туннелирование,
+  DNS-безопасность, маршрутизация. Для всех уровней подготовки.
+site_author: Miheichev Aleksandr Sergeevich
+repo_url: https://github.com/aleksandr-miheichev/v2rayn-guide
+repo_name: aleksandr-miheichev/v2rayn-guide
+edit_uri: edit/main/docs/
+
+copyright: >-
+  Copyright &copy; 2025 Miheichev Aleksandr Sergeevich —
+  <a href="https://github.com/aleksandr-miheichev/v2rayn-guide/blob/main/LICENSE">MIT License</a>
+
+theme:
+  name: material
+  language: ru
+  custom_dir: overrides
+  features:
+    # ---------- навигация ----------
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.indexes
+
+    # ---------- содержимое ----------
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+
+    # ---------- поиск ----------
+    - search.suggest
+    - search.highlight
+    - search.share
+
+    # ---------- хедер ----------
+    - header.autohide
+
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/brightness-7
+        name: Переключить на тёмную тему
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: Переключить на светлую тему
+
+  font:
+    text: Inter
+    code: JetBrains Mono
+
+  icon:
+    repo: fontawesome/brands/github
+    logo: material/shield-lock-outline
+
+  favicon: assets/icons/favicon.ico
+
+plugins:
+  - search:
+      lang:
+        - ru
+        - en
+
+  - i18n:
+      docs_structure: folder
+      languages:
+        - locale: ru
+          default: true
+          name: Русский
+          build: true
+        - locale: en
+          name: English
+          build: true
+
+markdown_extensions:
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - tables
+  - attr_list
+  - md_in_html
+  - def_list
+  - footnotes
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      base_path: ['.']
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.keys
+  - pymdownx.smartsymbols
+
+nav:
+  - Главная: index.md
+  - Быстрый старт:
+      - quickstart/index.md
+  - Маршрутизация:
+      - routing/index.md
+      - routing/how-it-works.md
+      - routing/setup.md
+      - routing/rules-explained.md
+  - DNS:
+      - dns/index.md
+      - dns/xray.md
+      - dns/sing-box.md
+      - dns/why-these-providers.md
+  - Проверка:
+      - verification/index.md
+  - FAQ:
+      - faq/index.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/aleksandr-miheichev
+      name: GitHub
+
+  generator: false
+
+extra_css:
+  - assets/css/custom.css

@@ -12,16 +12,25 @@
     {
       "address": "https://dns.quad9.net/dns-query",
       "queryStrategy": "UseIPv4",
+      "unexpectedIPs": [
+        "geoip:private"
+      ],
       "skipFallback": false
     },
     {
       "address": "https://doh.mullvad.net/dns-query",
       "queryStrategy": "UseIPv4",
+      "unexpectedIPs": [
+        "geoip:private"
+      ],
       "skipFallback": false
     }
   ],
   "queryStrategy": "UseIPv4",
   "disableFallback": false,
-  "disableFallbackIfMatch": true,
-  "useSystemHosts": false
+  "disableCache": false,
+  "serveStale": true,
+  "serveExpiredTTL": 3600,
+  "useSystemHosts": false,
+  "tag": "dns_inbound"
 }

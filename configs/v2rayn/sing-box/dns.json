@@ -1,161 +1,37 @@
 {
-  "dns": {
-    "servers": [
-      {
-        "tag": "bootstrap-dot",
-        "type": "tls",
-        "server": "9.9.9.9",
-        "server_port": 853,
-        "tls": {
-          "server_name": "dns.quad9.net"
-        },
-        "detour": "direct",
-        "timeout": "8s",
-        "strategy": "ipv4_only"
+  "servers": [
+    {
+      "tag": "quad9-doh",
+      "type": "https",
+      "server": "9.9.9.9",
+      "server_port": 443,
+      "path": "/dns-query",
+      "headers": {
+        "Host": "dns.quad9.net"
       },
-      {
-        "tag": "bootstrap-dot-2",
-        "type": "tls",
-        "server": "149.112.112.112",
-        "server_port": 853,
-        "tls": {
-          "server_name": "dns.quad9.net"
-        },
-        "detour": "direct",
-        "timeout": "8s",
-        "strategy": "ipv4_only"
+      "tls": {
+        "enabled": true,
+        "server_name": "dns.quad9.net",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
       },
-      {
-        "tag": "quad9-https",
-        "type": "https",
-        "server": "dns.quad9.net",
-        "server_port": 443,
-        "path": "/dns-query",
-        "domain_resolver": "bootstrap-dot",
-        "tls": {
-          "server_name": "dns.quad9.net",
-          "utls": {
-            "enabled": true,
-            "fingerprint": "chrome"
-          }
-        },
-        "detour": "proxy",
-        "timeout": "8s"
-      },
-      {
-        "tag": "mullvad-https",
-        "type": "https",
-        "server": "doh.mullvad.net",
-        "server_port": 443,
-        "path": "/dns-query",
-        "domain_resolver": "bootstrap-dot-2",
-        "tls": {
-          "server_name": "doh.mullvad.net",
-          "utls": {
-            "enabled": true,
-            "fingerprint": "chrome"
-          }
-        },
-        "detour": "proxy",
-        "timeout": "8s"
-      }
-    ],
-    "rules": [
-      {
-        "rule_set": [
-          "geosite:category-ads-all"
-        ],
-        "action": "predefined",
-        "rcode": "NXDOMAIN",
-        "disable_cache": true
-      }
-    ],
-    "final": "quad9-https",
-    "strategy": "ipv4_only",
-    "cache_capacity": 8192,
-    "independent_cache": false
-  },
-  "route": {
-    "default_domain_resolver": "quad9-https",
-    "rule_set": [
-      {
-        "type": "remote",
-        "tag": "geosite:category-ads-all",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/runetfreedom/russia-v2ray-rules-dat/release/sing-box/rule-set-geosite/geosite-category-ads-all.srs",
-        "download_detour": "proxy",
-        "update_interval": "6h"
-      },
-      {
-        "type": "remote",
-        "tag": "geosite:ru-blocked",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/runetfreedom/russia-v2ray-rules-dat/release/sing-box/rule-set-geosite/geosite-ru-blocked.srs",
-        "download_detour": "proxy",
-        "update_interval": "6h"
-      },
-      {
-        "type": "remote",
-        "tag": "geosite:ru-available-only-inside",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/runetfreedom/russia-v2ray-rules-dat/release/sing-box/rule-set-geosite/geosite-ru-available-only-inside.srs",
-        "download_detour": "proxy",
-        "update_interval": "6h"
-      },
-      {
-        "type": "remote",
-        "tag": "geoip:ru-blocked",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/runetfreedom/russia-v2ray-rules-dat/release/sing-box/rule-set-geoip/geoip-ru-blocked.srs",
-        "download_detour": "proxy",
-        "update_interval": "6h"
-      },
-      {
-        "type": "remote",
-        "tag": "geoip:private",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/runetfreedom/russia-v2ray-rules-dat/release/sing-box/rule-set-geoip/geoip-private.srs",
-        "download_detour": "proxy",
-        "update_interval": "6h"
-      }
-    ],
-    "rules": [
-      {
-        "rule_set": [
-          "geosite:category-ads-all"
-        ],
-        "action": "block"
-      },
-      {
-        "rule_set": [
-          "geoip:private"
-        ],
-        "action": "route",
-        "outbound": "direct"
-      },
-      {
-        "rule_set": [
-          "geosite:private"
-        ],
-        "action": "route",
-        "outbound": "direct"
-      },
-      {
-        "rule_set": [
-          "geosite:ru-available-only-inside"
-        ],
-        "action": "route",
-        "outbound": "direct"
-      },
-      {
-        "rule_set": [
-          "geosite:ru-blocked",
-          "geoip:ru-blocked"
-        ],
-        "action": "route",
-        "outbound": "proxy"
-      }
-    ],
-    "final": "proxy"
-  }
+      "detour": "proxy"
+    }
+  ],
+  "rules": [
+    {
+      "rule_set": [
+        "geosite-category-ads-all",
+        "geosite-win-spy"
+      ],
+      "action": "predefined",
+      "rcode": "NXDOMAIN"
+    }
+  ],
+  "final": "quad9-doh",
+  "strategy": "ipv4_only",
+  "cache_capacity": 8192,
+  "independent_cache": false
 }
